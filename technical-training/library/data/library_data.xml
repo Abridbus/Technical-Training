@@ -2,9 +2,9 @@
 <odoo>
     <data>
         <record model="library.book" id="book0">
-            <field name = "name">Blanche fesses \& les 7 mains </field>
+            <field name = "name">Blanche fesses et les 7 mains </field>
             <field name = "editionYear">1995</field>
-            <field name = "ISBN">0202020220202022020202</field>
+            <field name = "ISBN">02020202</field>
         </record>
     </data>
 </odoo>

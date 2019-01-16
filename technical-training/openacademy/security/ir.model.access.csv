@@ -1,4 +1,10 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-lecture_admin,lecture admin,model_openacademy_lecture,,1,1,1,1
-session_admin,session admin,model_openacademy_session,,1,1,1,1
-person_admin,person admin,model_res_partner,,1,1,1,1
+lecture_admin,lecture admin,model_openacademy_lecture,group_OA_admin,1,1,1,1
+lecture_manager,lecture manager,model_openacademy_lecture,group_OA_manager,1,1,1,0
+lecture_user,lecture user,model_openacademy_lecture,group_OA_user,1,0,0,0
+session_admin,session admin,model_openacademy_session,group_OA_admin,1,1,1,1
+session_manager,session manager,model_openacademy_session,group_OA_manager,1,1,1,0
+session_user,session user,model_openacademy_session,group_OA_user,1,0,0,0
+person_admin,person admin,model_res_partner,group_OA_admin,1,1,1,1
+person_manager,person manager,model_res_partner,group_OA_manager,1,1,1,0
+person_user,person user,model_res_partner,group_OA_user,1,0,0,0

@@ -25,11 +25,13 @@
 
     # always loaded
     'data':        [
+        "security/security.xml",
         "security/ir.model.access.csv",
         "views/lecture_views.xml",
         "views/sessions_views.xml",
         "views/person_views.xml",
         "views/menu_views.xml",
+        "wizard/wizard_views.xml",
         "data/openacademy_data.xml",
         
     ],

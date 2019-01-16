@@ -108,6 +108,9 @@ class Lecture(models.Model):
 
     teacher_id = fields.Many2one('res.partner', string = "Teacher of Lecture")
     session_ids = fields.One2many('openacademy.session', 'lecture_id', string='Sessions of a Lecture')
+    session_count = fields.Integer(compute="_count_session", string="Count Sessions")
+    attendees_count = fields.Integer(compute="_count_attendee", string="Count attendees")
+    #test = len(self.mapped('session_ids.attendee_ids'))
 	
     level = fields.Selection([
         ('1', 'Beginner'),
@@ -117,4 +120,28 @@ class Lecture(models.Model):
         ('5', 'Upper-Intermediate'),
         ('6', 'Advanced')
     ],string = 'Difficulty level of Lecture', required=True, search='_search_level', default='1')
+
+    #PasClair?
+    @api.multi
+    def open_attendees(self):
+        self.ensure_one()
+        attendee_ids = self.session_ids.mapped('attendee_ids')
+        return {
+            'name':      'Attendees of %s' % (self.name),
+            'type':      'ir.actions.act_window',
+            'res_model': 'res.partner',
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'domain':    [('id', 'in', attendee_ids.ids)],
+        }
+
+    @api.depends('session_ids')
+    def _count_session(self):
+        for course in self:
+            course.session_count = len(course.session_ids)
+
+    @api.depends('session_ids.attendees_count')
+    def _count_attendee(self):
+        for course in self:
+            course.attendees_count = len(course.mapped('session_ids.attendee_ids'))
     

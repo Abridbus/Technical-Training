@@ -48,6 +48,7 @@
                             <field name="level"/>
                             <field name="teacher_id"/>
                             <field name="isActive"/>
+                            <field name="attendees_count" />
                         </group>
                         <group>
                             <field name="maxSeats"/>
