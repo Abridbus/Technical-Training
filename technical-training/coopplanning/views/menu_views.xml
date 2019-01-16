@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem 
+        id="root_menu"
+        name="Coop Planning"
+        web_icon="coopplanning,static/img/weed.jpg"
+    />
+
+    <menuitem
+        id ="coopplanning_menu"
+        name = "Tasks"
+        parent = "coopplanning.root_menu"
+        sequence="10"
+    />
+
+    <menuitem
+        id = "task_menu_action"
+        name = "Tasks"
+        parent = "coopplanning.coopplanning_menu"
+        sequence="10"
+        action="task_action"
+    />
+
+        <menuitem
+        id = "volunteer_menu_action"
+        name = "Volunteers"
+        parent = "coopplanning.coopplanning_menu"
+        sequence="10"
+        action="volunteer_action"
+    />
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem 
+        id="root_menu"
+        name="Ez Pz Library"
+        web_icon="library,static/img/library.jpg"
+    />
+
+    <menuitem
+        id ="library_menu"
+        name = "Library"
+        parent = "library.root_menu"
+        sequence="10"
+    />
+
+    <menuitem
+        id = "library_menu_action"
+        name = "Books"
+        parent = "library.library_menu"
+        sequence="10"
+        action="library_action"
+    />
+</odoo>

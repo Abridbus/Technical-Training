@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="task_view_list" model="ir.ui.view">
+        <field name="name">coopplanning.task.tree</field>
+        <field name="model">coopplanning.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="task_view_form" model="ir.ui.view">
+        <field name="name">coopplanning.task.form</field>
+        <field name="model">coopplanning.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="taskVolunteer_ids" />
+                        <field name="taskType" />
+                    </group>
+                    <label for="taskVolunteer_ids" />
+                    <field name="taskVolunteer_ids" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+        
+
+    <record id="task_action" model="ir.actions.act_window">
+        <field name="name">Tâches</field>
+        <field name="res_model">coopplanning.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+volunteer_admin,volunteer admin,model_coopplanning_volunteer,,1,1,1,1
+address_admin,address admin,model_coopplanning_address,,1,1,1,1
+taskvolunteer_admin,taskvolunteer admin,model_coopplanning_taskvolunteer,,1,1,1,1
+task_admin,task admin,model_coopplanning_task,,1,1,1,1

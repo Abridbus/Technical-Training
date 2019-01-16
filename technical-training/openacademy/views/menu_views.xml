@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <menuitem
+                id="root_menu"
+                name="Open Academy"
+        />
+        <menuitem
+                id="lecture_menu"
+                name="Lectures"
+                parent="openacademy.root_menu"
+                sequence="10"
+        />
+                
+        <menuitem
+                id="lecture_menu_action"
+                name="Lectures"
+                parent="openacademy.lecture_menu"
+                sequence="10"
+                action="lecture_action"
+        />
+
+        <menuitem
+                id="session_menu_action"
+                name="Sessions"
+                parent="openacademy.lecture_menu"
+                sequence="20"
+                action="session_action"
+        />
+
+        <menuitem
+            id="partner_menu_action"
+            name="Contacts"
+            parent="openacademy.lecture_menu"
+            sequence="30"
+            action="partner_action"
+    />
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="coopplanning.task" id="task0">
+            <field name="name">1</field>
+            <field name="startDate">1.0</field>
+        </record>
+        <record model="coopplanning.task" id="task1">
+            <field name="name">2</field>
+            <field name="startDate">1.0</field>
+        </record>
+        <record model="coopplanning.task" id="task2">
+            <field name="name">3</field>
+            <field name="startDate">1.0</field>
+        </record>
+        <record model="coopplanning.task" id="task3">
+            <field name="name">4</field>
+            <field name="startDate">1.0</field>
+        </record>
+        <record model="coopplanning.task" id="task4">
+            <field name="name">5</field>
+            <field name="startDate">1.0</field>
+        </record>
+
+
+        <record model="coopplanning.volunteer" id="volunteer0">
+            <field name="name">Dora l'exploratrice</field>
+            <field name="address.street"> Avenue des pamplemousses 3 </field>
+            
+        </record>
+         <record model="coopplanning.volunteer" id="volunteer1">
+            <field name="name">Martin Matin</field>
+            
+        </record>
+         <record model="coopplanning.taskvolunteer" id="taskvolunteer0">
+            <field name="duration">2</field>
+            
+        </record>
+         <record model="coopplanning.taskvolunteer" id="taskvolunteer1">
+            <field name="duration">2</field>
+            
+        </record>
+    </data>
+</odoo>

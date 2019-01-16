@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+book_admin,book admin,model_library_book,,1,1,1,1
+person_admin,person admin,model_library_person,,1,1,1,1
+address_admin,address admin,model_library_address,,1,1,1,1
+rental_admin,rental admin,model_library_rental,,1,1,1,1

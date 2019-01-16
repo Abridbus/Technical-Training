@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+lecture_admin,lecture admin,model_openacademy_lecture,,1,1,1,1
+session_admin,session admin,model_openacademy_session,,1,1,1,1
+person_admin,person admin,model_res_partner,,1,1,1,1
