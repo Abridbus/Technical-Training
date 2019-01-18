@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import api, exceptions ,fields, models
-import pudb
 """
     The citadel of the seven kingdoms, located in Oldtown would like to use Odoo to manage the training of its future maesters.\n",
     
@@ -32,7 +31,10 @@ class Session(models.Model):
     attendee_ids = fields.Many2many('res.partner', string = 'Students following the lecture.')
     attendees_count = fields.Integer(compute='_count_attendees', string = 'number of attendees', store = True)
     maxSeats = fields.Integer(string = 'number max of seats', required = True)
-    seats = fields.Float(compute='_check_taken_seats', store=True, string = 'number of seats taken')            
+    seats = fields.Float(compute='_check_taken_seats', store=True, string = 'number of seats taken')  
+
+    is_paid = fields.Boolean('is_paid')     
+    product_id = fields.Many2one('product.template', 'Product')
 
     @api.depends('maxSeats', 'attendee_ids')
     def _check_taken_seats(self):
@@ -96,7 +98,30 @@ class Session(models.Model):
         res._auto_transition()
         if vals.get('teacher_id'):
             res.message_subscribe([vals['teacher_id']])
-        return res
+        return res 
+
+    @api.multi
+    def create_invoice_teacher(self):
+        teacher_invoice = self.env['account.invoice'].search([('partner_id', "=", self.teacher_id.id)], limit=1)
+
+        if not teacher_invoice:
+            teacher_invoice = self.env['account.invoice'].create({
+                'partner_id': self.teacher_id.id,
+            })
+
+        # install module accounting and a chart of account to have at least one expense account in your CoA
+        expense_account = self.env['account.account'].search([('user_type_id', '=', self.env.ref('account.data_account_type_expenses').id)], limit=1)
+        self.env['account.invoice.line'].create({
+            'invoice_id': teacher_invoice.id,
+            'product_id': self.product_id.id,
+            'price_unit': self.product_id.lst_price,
+            'account_id': expense_account.id,
+            'name':       'Session',
+            'quantity':   1,
+        })
+
+        self.write({'is_paid': True})
+
 
 class Lecture(models.Model):
     _name = "openacademy.lecture"
